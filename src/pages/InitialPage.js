@@ -1,13 +1,30 @@
 import React, { useEffect } from 'react';
-import { Image, View, Text } from 'react-native';
-import { Dimensions } from 'react-native';
+import { Image, View, StyleSheet, Text } from 'react-native';
 import * as routes from '../constants/routes';
 import HomeImageSVG from '../assets/images/HeroImage.png';
+import useImageDimensions from '../hooks/useImageDimensions';
 
-const windowObject = Dimensions.get('window');
-const ratio = windowObject.width / 541;
+const HomePage = ({ navigation }) => {
+  const { imageDimensions } = useImageDimensions();
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate(routes.WELCOME_PAGE);
+    }, 3000);
+  }, [navigation]);
 
-const HomePageStyles = {
+  return (
+    <View style={styles.mainWrapper}>
+      <View style={styles.topSection}>
+        <Text style={styles.textStyles}>Good Neighbor</Text>
+      </View>
+      <View style={styles.lowerSection}>
+        <Image source={HomeImageSVG} style={imageDimensions} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
   topSection: {
     display: 'flex',
     flexDirection: 'column',
@@ -32,29 +49,6 @@ const HomePageStyles = {
     height: '100%',
     backgroundColor: '#004D40',
   },
-  imageStyles: {
-    height: 362 * ratio,
-    width: windowObject.width,
-  },
-};
-
-const HomePage = ({ navigation }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate(routes.WELCOME_PAGE);
-    }, 3000);
-  }, [navigation]);
-
-  return (
-    <View style={HomePageStyles.mainWrapper}>
-      <View style={HomePageStyles.topSection}>
-        <Text style={HomePageStyles.textStyles}>Good Neighbor</Text>
-      </View>
-      <View style={HomePageStyles.lowerSection}>
-        <Image source={HomeImageSVG} style={HomePageStyles.imageStyles} />
-      </View>
-    </View>
-  );
-};
+})
 
 export default HomePage;

@@ -1,19 +1,10 @@
 import React from 'react';
 import { Button, Image, Text, View } from 'react-native';
-import { Dimensions } from 'react-native';
 import HeroWelcomePageImage from '../assets/images/WelcomeHero.png';
-
-const windowObject = Dimensions.get('window');
-const ratio = windowObject.width / 541;
-
-const welcomePageStyles = {
-  imageStyles: {
-    height: 362 * ratio,
-    width: windowObject.width,
-  },
-};
+import useImageDimensions from '../hooks/useImageDimensions';
 
 const WelcomePage = () => {
+  const { imageDimensions } = useImageDimensions();
   const onGetStartedClick = () => {};
   const onSignInClick = () => {};
   return (
@@ -21,7 +12,7 @@ const WelcomePage = () => {
       <View>
         <Image
           source={HeroWelcomePageImage}
-          style={welcomePageStyles.imageStyles}
+          style={imageDimensions}
         />
       </View>
       <View>
