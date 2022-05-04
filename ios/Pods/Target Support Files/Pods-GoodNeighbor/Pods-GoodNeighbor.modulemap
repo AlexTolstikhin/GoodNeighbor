@@ -1,0 +1,6 @@
+module Pods_GoodNeighbor {
+  umbrella header "Pods-GoodNeighbor-umbrella.h"
+
+  export *
+  module * { export * }
+}
