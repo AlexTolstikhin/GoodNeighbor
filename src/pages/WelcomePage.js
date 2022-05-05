@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import RoundedButtonFullWidth from '../components/roundedButtonFullWidth';
+import PageBodyText from '../components/pageBodyText';
 import HeroWelcomePageImage from '../assets/images/WelcomeHero.png';
 import useImageDimensions from '../hooks/useImageDimensions';
 import { bodyOne, headerOne } from '../styles/typography';
@@ -10,10 +11,8 @@ const WelcomePage = () => {
   const onGetStartedClick = () => {};
   const onSignInClick = () => {};
   const {
-    bodyText,
     bottomSection,
     buttonWrapper,
-    headerText,
     mainContainer,
     middleSection,
     topSection,
@@ -27,11 +26,11 @@ const WelcomePage = () => {
         />
       </View>
       <View style={middleSection}>
-        <Text style={headerText}>Welcome to GoodNeighbor</Text>
-        <Text style={bodyText}>
-          Making it easy for neighbors and co-workers to pickup food for each
-          other, saving on delivery fees and helping local restaurants.
-        </Text>
+        <PageBodyText
+          headerText="Welcome to GoodNeighbor"
+          subHeaderText="Making it easy for neighbors and co-workers to pickup food for each
+          other, saving on delivery fees and helping local restaurants."
+        />
       </View>
       <View style={bottomSection}>
         <View style={buttonWrapper}>
@@ -63,12 +62,6 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginVertical: 5
   },
-  headerText: {
-    ...headerOne
-  },
-  bodyText: {
-    ...bodyOne
-  }
 });
 
 export default WelcomePage;
