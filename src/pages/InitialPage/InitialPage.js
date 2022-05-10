@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Image, View, StyleSheet, Text } from 'react-native';
-import * as routes from '../constants/routes';
-import HomeImageSVG from '../assets/images/HeroImage.png';
-import useImageDimensions from '../hooks/useImageDimensions';
+import * as routes from '../../constants/routes';
+import HomeImageSVG from '../../assets/images/HeroImage.png';
+import useImageDimensions from '../../hooks/useImageDimensions';
 
 const HomePage = ({ navigation }) => {
   const { imageDimensions } = useImageDimensions();

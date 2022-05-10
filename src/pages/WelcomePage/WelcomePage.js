@@ -1,10 +1,9 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import RoundedButtonFullWidth from '../components/roundedButtonFullWidth';
-import PageBodyText from '../components/pageBodyText';
-import HeroWelcomePageImage from '../assets/images/WelcomeHero.png';
-import useImageDimensions from '../hooks/useImageDimensions';
-import { bodyOne, headerOne } from '../styles/typography';
+import RoundedButtonFullWidth from '../../components/roundedButtonFullWidth';
+import PageBodyText from '../../components/pageBodyText';
+import HeroWelcomePageImage from '../../assets/images/WelcomeHero.png';
+import useImageDimensions from '../../hooks/useImageDimensions';
 
 const WelcomePage = () => {
   const { imageDimensions } = useImageDimensions();
