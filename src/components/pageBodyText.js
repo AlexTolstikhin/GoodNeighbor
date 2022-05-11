@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { bodyOne, headerOne } from '../styles/typography';
 
 const PageBodyText = ({ headerText, subHeaderText }) => (
-  <View style={styles.container}>
+  <View>
     <Text style={styles.headerText}>{headerText}</Text>
     <Text style={styles.bodyText}>
       {subHeaderText}
@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     ...bodyOne
-  },
-  container: {
-    flex: 20,
-    marginHorizontal: 20
   },
 });
 

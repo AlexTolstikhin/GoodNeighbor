@@ -16,6 +16,7 @@ import * as routes from './src/constants/routes';
 import InitialPage from './src/pages/InitialPage';
 import SignIn from './src/pages/SignIn';
 import WelcomePage from './src/pages/WelcomePage';
+import VerifyPhonePage from './src/pages/VerifyPhone';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Stack.Screen component={InitialPage} name={routes.INITIAL_PAGE} options={{ headerShown: false }} />
         <Stack.Screen component={WelcomePage} name={routes.WELCOME_PAGE} options={{ headerShown: false }} />
         <Stack.Screen component={SignIn} name={routes.SIGN_IN} options={{ headerShown: true, headerBackImageSource: require('./src/assets/images/CloseIcon.png'), headerBackTitleVisible: false, title: "" }} />
+        <Stack.Screen component={VerifyPhonePage} name={routes.VERIFY_PHONE} options={{ headerShown: true, headerBackImageSource: require('./src/assets/images/CloseIcon.png'), headerBackTitleVisible: false, title: "Verify Phone" }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

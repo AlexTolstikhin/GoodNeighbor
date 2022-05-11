@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import PageBodyText from '../../components/pageBodyText';
+import { KeyboardAvoidingView, View, TextInput } from 'react-native';
+import { VERIFY_PHONE } from '../../constants/routes';
+import PageBodyText from '../../components/PageBodyText';
+import PageWrapper from '../../components/PageWrapper';
+import RoundedButtonFullWidth from '../../components/RoundedButtonFullWidth';
+import NumberInput from '../../components/NumberInput';
 
+const SignInPage = ({ navigation }) => {
+  const [number, setNumber] = useState('');
 
-const SignInPage = () => {
-  const [number, setNumber] = useState(null);
-  const { mainContainer } = styles;
+  const onSendButtonPress = () => {
+    navigation.navigate(VERIFY_PHONE)
+  };
+
   return(
-    <View style={mainContainer}>
-      <PageBodyText headerText="Sign in" subHeaderText="We will send a one time code to your registered mobile number" />
-      <TextInput
-        onChangeText={setNumber}
-        value={number}
-        placeholder="Phone"
-        keyboardType="numeric"
-      />
-    </View>
+    <KeyboardAvoidingView behavior='padding' style={{ flex: 1 }} keyboardVerticalOffset={100}>
+        <PageWrapper customStyles={{ justifyContent: 'space-between' }} >
+        <View>
+          <PageBodyText headerText="Sign in" subHeaderText="We will send a one time code to your registered mobile number" />
+          <NumberInput
+            onChange={setNumber}
+            value={number}
+            placeholder="Phone"
+          />
+        </View>
+        <RoundedButtonFullWidth onPress={onSendButtonPress} label="Send one time code" withBackground />
+      </PageWrapper>
+    </KeyboardAvoidingView>
   );
 };
 
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    marginTop: 20,
-  },
-})
 
 export default SignInPage;

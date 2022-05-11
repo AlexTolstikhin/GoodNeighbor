@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Image, View, StyleSheet, Text } from 'react-native';
+import PageWrapper from '../../components/PageWrapper';
 import * as routes from '../../constants/routes';
 import HomeImageSVG from '../../assets/images/HeroImage.png';
 import useImageDimensions from '../../hooks/useImageDimensions';
@@ -13,14 +14,14 @@ const HomePage = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={styles.mainWrapper}>
+    <PageWrapper backgroundColor="#004D40">
       <View style={styles.topSection}>
         <Text style={styles.textStyles}>Good Neighbor</Text>
       </View>
       <View style={styles.lowerSection}>
         <Image source={HomeImageSVG} style={imageDimensions} />
       </View>
-    </View>
+    </PageWrapper>
   );
 };
 
@@ -44,10 +45,6 @@ const styles = StyleSheet.create({
     lineHeight: 50,
     textAlign: 'center',
     color: '#FCFBFA',
-  },
-  mainWrapper: {
-    height: '100%',
-    backgroundColor: '#004D40',
   },
 })
 
