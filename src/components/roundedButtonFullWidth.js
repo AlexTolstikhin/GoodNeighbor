@@ -2,18 +2,23 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Buttons, Colors, Typography } from '../styles';
 
-const RoundedButtonFullWidth = ({ label, onPress, withBackground = false }) => (
-  <TouchableOpacity onPress={onPress} style={styles({ withBackground }).button}>
-    <Text style={styles({ withBackground }).text}>{label}</Text>
+const RoundedButtonFullWidth = ({ disabled, label, onPress, withBackground = false }) => (
+  <TouchableOpacity disabled={disabled} onPress={onPress} style={styles({ disabled, withBackground }).button}>
+    <Text style={styles({ disabled, withBackground }).text}>{label}</Text>
   </TouchableOpacity>
 );
 
-const styles = ({ withBackground }) => StyleSheet.create({
+const styles = ({ disabled, withBackground }) => StyleSheet.create({
   button: {
     ...Buttons.fullWidthRoundedButton,
     ...withBackground && {
       backgroundColor: Colors.pineGreen700,
     },
+    ...disabled === true && {
+      backgroundColor: Colors.cloud200,
+      color: Colors.cloud500,
+      borderColor: Colors.cloud200,
+    }
   },
   text: {
     ...Typography.buttonPrimary,
@@ -22,6 +27,9 @@ const styles = ({ withBackground }) => StyleSheet.create({
     },
     ...withBackground === false && {
       color: Colors.pineGreen700
+    },
+    ...disabled === true && {
+      color: Colors.cloud500,
     }
   }
 });

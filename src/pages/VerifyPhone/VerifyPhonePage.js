@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, View, Text, TextInput } from 'react-native';
+import { KeyboardAvoidingView, View, Text } from 'react-native';
 import { SIGN_IN } from '../../constants/routes';
 import PageWrapper from '../../components/PageWrapper';
+import RegularText from '../../components/RegularText';
 import RoundedButtonFullWidth from '../../components/RoundedButtonFullWidth';
 import NumberInput from '../../components/NumberInput';
+import { bodyOne } from '../../styles/typography';
 
 const VeifyPhonePage = ({ navigation }) => {
-  const [number, setNumber] = useState(null);
+  const [verificationNumber, setVerificationNumber] = useState(null);
 
   const onVerifyAndSignInPress = () => {
     navigation.navigate(SIGN_IN)
   };
 
   return(
-    <KeyboardAvoidingView behavior='padding' style={{ flex: 1 }} keyboardVerticalOffset={100}>
+    <KeyboardAvoidingView behavior='padding' style={{ flex: 1 }} keyboardVerticalOffset={80}>
         <PageWrapper customStyles={{ justifyContent: 'space-between' }} >
         <View>
           <NumberInput
-            onChange={setNumber}
-            value={number}
+            onChange={setVerificationNumber}
+            value={verificationNumber}
             placeholder="Verification code"
           />
-          <Text>
+          <RegularText styleOf={bodyOne}>
             We have sent a verification code to your number ***2345
-          </Text>
-          <Text>
+          </RegularText>
+          <RegularText customStyles={{ marginTop: 24, fontSize: 18, lineHeight: 20 }} styleOf={bodyOne}>
             Send code again
-          </Text>
+          </RegularText>
         </View>
-        <RoundedButtonFullWidth onPress={onVerifyAndSignInPress} label="Send one time code" withBackground />
+        <RoundedButtonFullWidth onPress={onVerifyAndSignInPress} label="Verify and Sign in" withBackground />
       </PageWrapper>
     </KeyboardAvoidingView>
   );
