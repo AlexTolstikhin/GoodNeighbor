@@ -21,16 +21,45 @@ import VerifyPhonePage from './src/pages/VerifyPhone';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
+  const commonOptions = {
+    headerShown: false
+  };
   return (
     <NavigationContainer>
       <StatusBar hidden />
       <Stack.Navigator
         initialRouteName={routes.INITIAL_PAGE}
       >
-        <Stack.Screen component={InitialPage} name={routes.INITIAL_PAGE} options={{ headerShown: false }} />
-        <Stack.Screen component={WelcomePage} name={routes.WELCOME_PAGE} options={{ headerShown: false }} />
-        <Stack.Screen component={SignIn} name={routes.SIGN_IN} options={{ headerShown: true, headerBackImageSource: require('./src/assets/images/CloseIcon.png'), headerBackTitleVisible: false, title: "" }} />
-        <Stack.Screen component={VerifyPhonePage} name={routes.VERIFY_PHONE} options={{ headerShown: true, headerBackImageSource: require('./src/assets/images/CloseIcon.png'), headerBackTitleVisible: false, title: "Verify Phone" }} />
+        <Stack.Screen
+          component={InitialPage}
+          name={routes.INITIAL_PAGE}
+          options={{ ...commonOptions }}
+        />
+        <Stack.Screen
+          component={WelcomePage}
+          name={routes.WELCOME_PAGE}
+          options={{ ...commonOptions }}
+        />
+        <Stack.Screen
+          component={SignIn}
+          name={routes.SIGN_IN}
+          options={{
+            ...commonOptions,
+            headerBackImageSource: require('./src/assets/images/CloseIcon.png'),
+            headerBackTitleVisible: false,
+            title: ""
+          }}
+        />
+        <Stack.Screen
+          component={VerifyPhonePage}
+          name={routes.VERIFY_PHONE}
+          options={{
+            ...commonOptions,
+            headerBackImageSource: (require('./src/assets/images/CloseIcon.png')),
+            headerBackTitleVisible: false,
+            title: "Verify Phone"
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
