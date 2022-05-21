@@ -18,7 +18,6 @@ import InitialPage from './src/pages/InitialPage';
 import SignIn from './src/pages/SignIn';
 import WelcomePage from './src/pages/WelcomePage';
 import VerifyPhonePage from './src/pages/VerifyPhone';
-import CloseIcon from './src/assets/images/CloseIcon.png';
 
 
 const App = () => {
@@ -46,7 +45,6 @@ const App = () => {
           component={SignIn}
           name={routes.SIGN_IN}
           options={{
-            headerBackImageSource: require('./src/assets/images/CloseIcon.png'),
             headerBackTitleVisible: false,
             title: "",
             headerLeft: () => (
